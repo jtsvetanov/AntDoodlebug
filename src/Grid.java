@@ -10,7 +10,8 @@ import java.awt.*;
 public class Grid extends JFrame {
 
 
-    private JLabel labels[][];
+
+    private JLabel labels[];
     private Container container;
     private GridLayout layout;
     int row;
@@ -19,29 +20,27 @@ public class Grid extends JFrame {
     // set up GUI
     public Grid(int row, int col)
     {
-        super( "Game Of Life" );
+        super( "Game Of Life - Jordan" );
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
         // set up grid layout struture of the display
         this.row = row;
         this.col = col;
-        layout = new GridLayout(row,col);
+        layout = new GridLayout( row, col );
         container = getContentPane();
         container.setLayout(layout);
 
         // create and add buttons
-        labels = new JLabel[row][col];
+        labels = new JLabel[ row * col ];
 
-        for ( int i = 0; i <row; i++ ) {
-            for(int j = 0;j<col;j++) {
-                labels[i][j] = new JLabel(" ");
-                labels[i][j].setOpaque(true);
-                container.add( labels[i][j]);
-            }
+        for ( int i = 0; i < labels.length; i++ ) {
+            labels[ i ] = new JLabel( " " );
+            labels[i].setOpaque(true);
+            container.add( labels[ i ] );
         }
 
         // set up the size of the window and show it
-        setSize( col,row);
+        setSize( col*20,row*20);
         setVisible( true );
 
     } // end constructor GridLayoutDemo
@@ -49,20 +48,21 @@ public class Grid extends JFrame {
     // display the given char in the (row,col) position of the display
     public void setChar (int rowX, int colY, char c)
     {
-//        if ((rowX >= 0 && rowX < row) && (colY >= 0 && colY < col) )
-//        {
-//            int pos = row*colY + col;
-//            labels [pos].setText("" + c);
-//        }
+        if ((rowX >= 0 && rowX < row) && (colY >= 0 && colY < col) )
+        {
+            int pos = rowX*col + colY;
+            labels [pos].setText("" + c);
+        }
     }
 
     // display the given color in the (row,col) position of the display
-    public void setColor (int rowC, int colC, Color c)
+    public void setColor (int rowX, int colY, Color c)
     {
-        if ((rowC >= 0 && rowC < row  ) && (colC >= 0 && colC < col) )
+        if ((rowX >= 0 && rowX < row ) && (colY >= 0 && colY < col ) )
         {
-            labels [rowC][colC].setBackground(c);
-        }
+        int pos = rowX * col  + colY;
+        labels [pos].setBackground(c);
+    }
     }
 
 }

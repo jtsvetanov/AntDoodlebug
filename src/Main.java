@@ -15,23 +15,21 @@ public class Main extends Thread{
 
     public static void main(String[] args){
 
-        Grid grid = new Grid(300,300);
-        grid.setColor(19,19, Color.BLUE);
+        Grid grid = new Grid(20,20);
 
-//        Thread t = new Thread(){
-//            public void run(){
-//                Grid grid = new Grid(300,300);
-//                grid.setColor(19,19, Color.BLUE);
-//            }
-//        };
-//        t.start();
+       // Creature cr = new Creature();
+
+            Ant AntObj  = new Ant(grid);
+        DoodleBug big = new DoodleBug(grid);
+            //AntObj.spawn(grid);
 
 
+//        grid.setChar(19,19,'g');
+//        grid.setColor(0,0, Color.BLUE);
+//        grid.setColor(0,19, Color.BLUE);
+//        grid.setColor(19,0, Color.BLUE);
+//        grid.setColor(19,19, Color.BLUE);
 
-      //  grid.setChar(19,19,'j');
-//
-    //   grid.setChar(20,20,'g');
- //      grid.setColor(19,19, Color.BLUE);
        // grid.lablesCreate(400, 400);
 
 
