@@ -14,8 +14,9 @@ public class Grid extends JFrame {
     private JLabel labels[];
     private Container container;
     private GridLayout layout;
-    int row;
-    int col;
+    private int row;
+    private int col;
+
 
     // set up GUI
     public Grid(int row, int col)
@@ -64,5 +65,23 @@ public class Grid extends JFrame {
         labels [pos].setBackground(c);
     }
     }
+
+    //setters and getters for Grid's row and col
+
+    public void setRow(int row){
+        this.row = row;
+    }
+    public void setCol(int col){
+        this.col = col;
+    }
+
+    public int getRow(){
+        return row;
+    }
+    public int getCow(){
+        return col;
+    }
+
+
 
 }
